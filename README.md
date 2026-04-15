@@ -32,7 +32,7 @@ Ce projet est un tutoriel interactif Angular 21 qui démontre les concepts fonda
 3. **Signals** - Gestion réactive de l'état avec les signaux Angular 21
 
 4. **Control Flux** - Structures de contrôle dans les templates
-   - `*ngIf`, `*ngFor`, `*ngSwitch`
+   - `*@if`, `*@for`, 
 
 5. **Dynamic CSS Class** - Classes CSS dynamiques et conditionnelles
 
@@ -97,7 +97,7 @@ src/
 
 ```bash
 # Cloner le projet
-git clone [URL du dépôt]
+git clone https://github.com/yourusername/angular21-tutorial.git
 
 # Installer les dépendances
 npm install
