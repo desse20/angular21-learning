@@ -1,0 +1,16 @@
+<p>data-user works!</p>
+<!-- <button class="bg-blue-700 hover:bg-orange-800 text-white font-bold py-2 px-4 rounded" (click)="welcomeUser()">Welcome User</button> -->
+<p>{{ Message }}</p>
+<!-- <p>{{ UserData.status === 'Connected' ? 'Welcome ' + UserData.name : 'Please connect' }}</p> -->
+<p><input type="text" placeholder="Your username" [(ngModel)]="UserData.name"></p>
+<p><input type="number" placeholder="Your age" [(ngModel)]="UserData.age"></p>
+<p><input type="text" [(ngModel)]="UserData.status" placeholder="Your status"> </p>
+
+<button class="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded" (click)="showMessage()">Show Surprise</button>
+
+
+<!-- Update User Data -->
+<!-- <h1>Update User Data</h1>
+<input type="text" [(ngModel)]="UserData.name" [value]="UserData.name" placeholder=" Update Your username">
+<input type="number" [(ngModel)]="UserData.age" [value]="UserData.age" placeholder=" Update Your age">
+<input type="text" [(ngModel)]="UserData.status" [value]="UserData.status" placeholder=" Update Your status"> -->

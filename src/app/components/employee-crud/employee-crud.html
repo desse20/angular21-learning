@@ -1,0 +1,97 @@
+<div class="min-h-screen bg-gray-50 p-6">
+  <!-- Header -->
+  <div class="flex items-center justify-between mb-6">
+    <h1 class="text-2xl font-bold text-gray-800">Employee Management</h1>
+    <button class="px-4 py-2 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700 transition">
+      + Add Employee
+    </button>
+  </div>
+
+  <!-- Form Card -->
+  <div class="bg-white rounded-2xl shadow p-6 mb-6">
+    <h2 class="text-lg font-semibold mb-4 text-gray-700">Add / Edit Employee</h2>
+
+    <div class="m-5">
+      <input
+        type="text"
+        placeholder="Name"
+        class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none m-2"
+        [(ngModel)]="empObject.name"
+        name="name"
+      /><br />
+
+      <input
+        type="text"
+        placeholder="Department"
+        class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-blue-500 outline-none m-2"
+        [(ngModel)]="empObject.department"
+        name="department"
+      /><br />
+    </div>
+    <br />
+
+    <div class="mt-4 flex gap-3">
+      @if (empObject.id == 0) {
+        <button
+          (click)="OnSaveEmployee()"
+          class="px-5 py-2 bg-green-600 text-white rounded-xl hover:bg-green-700 transition"
+        >
+          Save
+        </button>
+      } @else {
+        <button
+          (click)="OnUpdateEmployee()"
+          class="px-5 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition"
+        >
+          Update
+        </button>
+      }
+
+      <button class="px-5 py-2 bg-gray-300 text-gray-700 rounded-xl hover:bg-gray-400 transition">
+        Cancel
+      </button>
+    </div>
+  </div>
+
+  <!-- Table Card -->
+  <div class="bg-white rounded-2xl shadow overflow-hidden">
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse">
+        <thead class="bg-gray-100 text-gray-600 text-sm uppercase">
+          <tr>
+            <th class="px-6 py-3">ID</th>
+            <th class="px-6 py-3">Name</th>
+            <th class="px-6 py-3">Department</th>
+            <th class="px-6 py-3 text-right">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody class="divide-y">
+          @for (emp of employList(); track emp.id) {
+            <!-- Row -->
+            <tr class="hover:bg-gray-50">
+              <!-- <td class="px-6 py-4">{{ emp.id }}</td> -->
+              <td class="px-6 py-4 font-medium text-gray-800">{{ emp.name }}</td>
+              <td class="px-6 py-4">{{ emp.department }}</td>
+              <td class="px-6 py-4">
+                <div class="flex justify-end gap-2">
+                  <button
+                    class="px-3 py-1 text-sm bg-yellow-400 text-white rounded-lg hover:bg-yellow-500"
+                    (click)="onEditEmployee(emp)"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    class="px-3 py-1 text-sm bg-red-500 text-white rounded-lg hover:bg-red-600" (click)="OnDeleteEmployee(emp.id)"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

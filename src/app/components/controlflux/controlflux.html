@@ -1,0 +1,113 @@
+
+<div>
+  <input type="checkbox" [(ngModel)]="isOfferCode"> Do you have a offer code ?
+</div>
+@if(isOfferCode === true){
+<div>
+  <input class="border-2" type="text" placeholder=" Code offer ">
+</div>
+}
+<div>
+  <div>
+    @if(isSuccessVisible() === true){
+    <div class="bg-green-600 m-5">
+    Success Div
+    </div>
+    }@else{
+    <div class="bg-red-500 m-5">
+      Error Div
+    </div>
+    }
+  </div>
+
+  <div>
+    <button class="bg-green-600 text-white cursor-pointer" (click)="ToogleVisibility()"> Toogle</button>
+  </div>
+</div>
+
+<hr>
+<div class="m-4">
+    <div>
+        <input type="text" [(ngModel)]="studentTotalMarks"  placeholder="%"  class="flex justify-center m-4">
+
+    </div>
+    <div>
+      @if (studentTotalMarks >= 70){
+        <strong class="text-green-500">Student has  A Grade</strong>
+
+      }@else if(studentTotalMarks >= 50 && studentTotalMarks < 70) {
+        <span class="text-yellow-500">Student has B Grade</span>
+
+      }@else if (studentTotalMarks < 50 && studentTotalMarks >= 35){
+      <span class="text-blue-500">Student has C Grade</span>
+
+      }@else{
+        @if( studentTotalMarks === 0){
+          <span>Enter value</span>
+        }@else{
+      <span class="text-red-500">Student Fails</span>
+        }
+      }
+    </div>
+    <hr>
+
+    <div class="m-5">
+      <div>
+        <ul>
+          @for (item of  offerList; track $index){
+
+            <li>{{item}}</li>
+
+          }
+        </ul>
+      </div>
+    <hr>
+
+      <div class="m-4">
+        @for(item of productCategoryList; track $index){
+          <button class="bg-blue-500 rounded-md cursor-pointer text-white m-2 p-2"> {{item}} </button>
+        }
+      </div>
+
+      <div>
+  <table class="w-full border-4 border-gray-500 rounded-lg text-center border-collapse">
+
+    <thead class="bg-gray-300">
+      <tr>
+        <th class="p-3 border border-gray-400">No </th>
+
+        <th class="p-3 border border-gray-400">Employee</th>
+        <th class="p-3 border border-gray-400">Department</th>
+        <th class="p-3 border border-gray-400">Active</th>
+      </tr>
+    </thead>
+
+    <tbody class="bg-white">
+      @for (item of employeeList; track $index) {
+        <tr class="hover:bg-gray-100">
+
+          <td class="p-3 border border-gray-300">{{ $index + 1 }}</td>
+          <td class="p-3 border border-gray-300">{{ item.name }}</td>
+          <td class="p-3 border border-gray-300">{{ item.department }}</td>
+          <td class="p-3 border border-gray-300">
+              <!-- @if(item.isActive === true){
+                <strong class="bg-green-500 text-white p-1 rounded">Active</strong>
+              }@else{
+                <strong class="bg-red-500 text-white p-1 rounded">Inactive</strong>
+              } -->
+
+            <strong [ngClass]="item.isActive == true ? 'bg-green-500 text-white p-1 rounded' : 'bg-red-500 text-white p-1 rounded'">
+              {{ item.isActive == true ? 'Active' : 'Inactive' }}
+            </strong>
+          </td>
+
+        </tr>
+      }
+    </tbody>
+
+  </table>
+</div>
+  </div>
+</div>
+
+

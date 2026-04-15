@@ -1,0 +1,38 @@
+<p>data-binding works!</p>
+<table class="">
+  <tbody>
+    <!-- Interpolation -->
+    <tr class="m-10">
+      <td> <span>{{ courseName }}</span> </td>
+      <td> <strong>{{ courseName }}</strong> </td>
+      <td> <strong>{{ cityName}}</strong> </td>
+
+    </tr>
+    <!-- Property Binding -->
+    <tr>
+      <td> <input class="border-b-blue-400" type="text" value="1223" placeholder="Enter value"> </td>
+      <td> <p [class]="className">Hello, {{ studentName}}!</p> </td>
+      <td> <input [type]="inputtype" [value]="inputtype" placeholder="Hello"> </td>
+      <td> <button class="bg-amber-800 text-white py-2 px-4 rounded cursor-pointer" [type]="inputbutton">{{ inputbutton }}</button> </td>
+
+    </tr>
+    <!-- Event Binding -->
+    <tr>
+      <td> <button class="bg-blue-800 text-white py-2 px-4 rounded cursor-pointer" (click)="showVoiceMessage()">Show Message</button> </td>
+      <td>
+        <label for="ville-select">Ville:</label>
+        <select name="ville" id="ville-select" (change)="onStateChange()">
+          <option value="Cotonou">Cotonou</option>
+          <option value="Lagos">Lagos</option>
+          <option value="Kinshasa">Kinshasa</option>
+        </select>
+      </td>
+      <!-- Two-way Binding -->
+      <td>
+        <input type="text" [(ngModel)]="inputtype" placeholder="Enter your name">
+      </td>
+      <td><button  class="bg-blue-800 text-white py-2 px-4 rounded cursor-pointer m-10" (click)="changeCourseName('Dot net Course')">Change Dot net Course</button></td>
+      <td><button class="bg-blue-800 text-white py-2 px-4 rounded cursor-pointer" (click)="changeCourseName('Java Course')">Change Java Course</button></td>
+    </tr>
+  </tbody>
+</table>

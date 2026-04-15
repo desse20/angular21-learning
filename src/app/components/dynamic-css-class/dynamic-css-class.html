@@ -1,0 +1,75 @@
+<div>
+
+  <div>
+      <h1 class="font-extrabold text-4xl flex justify-center">List</h1>
+      <div>
+        <button class="bg-green-600 m-5 cursor-pointer p-2 rounded-2xl">button </button>
+      </div>
+      <div>
+          <div class="bg-gray-600 m-5 p-2 rounded-2xl">
+            <div class="p-4" [ngClass]="myClassName">
+    Div 1
+  </div>
+  <div class="p-4">
+    <input  class="border p-2" type="text" name="" id="" placeholder="Enter class name"[(ngModel)]="myClassName">
+    <button class="bg-blue-500 text-white p-2 rounded cursor-pointer m-2" [ngClass]="isActive == true ? 'bg-green-400' : 'bg-red-600'" (click)="isActive = !isActive">Status </button>
+  </div>
+</div>
+
+<hr>
+
+<div>
+    <div>
+        <p [ngClass]="priceProduct < 5000 ? 'text-green-500' : 'text-red-500'">Price $: {{ priceProduct }}</p>
+    </div>
+    <div>
+      <input class="border rounded-2xl" type="number" name="" id="" placeholder="Enter price" [(ngModel)]="priceProduct">
+    </div>
+</div>
+
+
+<hr>
+
+<div>
+  <div class=" m-2 p-4" [ngStyle]="{'background-color': divBackColor}">
+    Div 55
+  </div>
+  <div class="p-4">
+    <input  class="border p-2" type="text" name="" id="" placeholder="Enter background color"[(ngModel)]="divBackColor">
+    <button class="bg-blue-500 text-white p-2 rounded cursor-pointer m-2" [ngClass]="isActive == true ? 'bg-green-400' : 'bg-red-600'" (click)="isActive = !isActive">Status </button>
+  </div>
+
+
+          </div>
+        <div class="m-5 p-4" [ngStyle]="myCss">
+    Div 2
+  </div>
+
+  <hr>
+
+    <div [class]=" 'm-2 p-4 ' + myClassName">
+    Div 1
+  </div>
+  <div class="p-4">
+    <input  class="border p-2" type="text" name="" id="" placeholder="Enter class name"[(ngModel)]="myClassName">
+    <button class="bg-blue-500 text-white p-2 rounded cursor-pointer m-2" [ngClass]="isActive == true ? 'bg-green-400' : 'bg-red-600'" (click)="isActive = !isActive">Status </button>
+  </div>
+
+    <hr>
+    <div>
+      <div class=" m-2 p-4" [ngStyle]="{'background-color': []}">
+        Div 55
+      </div>
+      <div class="p-4">
+        <input  class="border p-2" type="text" name="" id="" placeholder="Enter background color"[(ngModel)]="divBackColor">
+        <button class="bg-blue-500 text-white p-2 rounded cursor-pointer m-2" [ngClass]="isActive == true ? 'bg-green-400' : 'bg-red-600'" (click)="isActive = !isActive">Status </button>
+      </div>
+    </div>
+
+
+</div>
+
+
+      </div>
+
+  </div>
